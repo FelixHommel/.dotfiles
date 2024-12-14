@@ -19,4 +19,5 @@ source $ZSH/oh-my-zsh.sh
 
 export LANG=en_US.UTF-8
 
+export PATH="$PATH:/opt/nvim-linux64/bin"
 export EDITOR='nvim'
