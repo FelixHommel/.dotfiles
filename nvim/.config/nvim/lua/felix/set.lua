@@ -3,7 +3,7 @@ vim.cmd.colorscheme("duskfox")
 vim.opt.termguicolors = true
 
 --clipboard
-vim.opt.clipboard = "unnamedplus" -- system keyboard for yank's
+vim.opt.clipboard:append("unnamedplus") -- system keyboard for yank's
 
 --Line Numbering
 vim.opt.nu = true
