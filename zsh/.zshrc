@@ -19,5 +19,13 @@ source $ZSH/oh-my-zsh.sh
 
 export LANG=en_US.UTF-8
 
+export PATH=/usr/local/cuda-12.6/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-12.6/lib64\${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+
 export PATH="$PATH:/opt/nvim-linux64/bin"
-export EDITOR='nvim'
+export EDITOR="nvim"
+export NVCC_PREPEND_FLAGS="-ccbin /usr/bin/clang++"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
