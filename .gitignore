@@ -1,2 +1,4 @@
 ssh
 lazy-lock.json
+.luarc.json
+*.bak
