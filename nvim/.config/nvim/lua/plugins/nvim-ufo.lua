@@ -4,6 +4,6 @@ return {
         "kevinhwang91/promise-async"
     },
     config = function()
-        require("ufo").setup({})
+        require("ufo").setup()
     end
 }

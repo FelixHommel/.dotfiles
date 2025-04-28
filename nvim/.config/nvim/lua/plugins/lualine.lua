@@ -1,9 +1,12 @@
 return {
     "nvim-lualine/lualine.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    event = "VeryLazy",
+    dependencies = {
+        "nvim-tree/nvim-web-devicons"
+    },
     config = function()
         require("lualine").setup({
-            theme = "tokyonight"
+            theme = "nord"
         })
     end
 }
