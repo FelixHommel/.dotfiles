@@ -59,7 +59,8 @@ end
 local root_files = {
     "compile_commands.json",
     ".clang-tidy",
-    ".clang-format"
+    ".clang-format",
+    ".git"
 }
 
 local root_dir_func = function(fname)
@@ -111,10 +112,10 @@ return {
         local lspconfig = require("lspconfig")
 
         mason.setup()
-        mason_lspconfig.setup({
-            ensure_installed = { "clangd", "lua_ls" },
-            automatic_installation = true
-        })
+        mason_lspconfig.setup{
+            ensure_installed = { "clangd", "lua_ls" }
+            -- automatic_enable = true
+        }
 
         vim.lsp.handlers["textDocument/hover"] =
             vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
@@ -146,7 +147,7 @@ return {
 
         -- Setup all other lsp servers
         for _, server in ipairs({
-            "clangd",
+            "asm_lsp",
             "bashls",
             "cmake",
             "dockerls",
