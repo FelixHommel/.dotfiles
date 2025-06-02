@@ -156,7 +156,9 @@ return {
             "glsl_analyzer",
             "pyright",
             "r_language_server",
-            "vimls"
+            "vimls",
+            "jdtls",
+            "tinymist"
         }) do
             lspconfig[server].setup({
                 on_attach = function(client, bufnr)
