@@ -1,0 +1,11 @@
+# To view a full default config: ghostty +show-config --default --docs
+
+# Looks
+font-family = "FiraCode Nerd Font"
+theme = light:coffee_theme,dark:duskfox
+
+background-opacity = 0.8
+background-blur = true
+
+# Misc
+shell-integration = zsh
