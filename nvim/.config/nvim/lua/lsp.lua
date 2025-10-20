@@ -131,4 +131,27 @@ vim.lsp.enable("slangd")
 vim.lsp.enable("tinymist")
 
 -- LaTeX
+vim.lsp.config("texlab", {
+    cmd = { "texlab" },
+    filetypes = { "tex", "plaintex", "bib" },
+    root_markers = { ".latexmkrc" },
+    settings = {
+        texlab = {
+            build = {
+                args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+                executable = "latexmk",
+                forwardSearchAfter = true,
+                onSave = false
+            },
+            forwardSearch = {
+                executable = "qpdfview",
+                args = { "--unique", "%p#src:%f:%l:1" }
+            },
+            latexFormatter = "latexindent",
+            latexindent = {
+                modifyLineBreaks = false
+            }
+        }
+    }
+})
 vim.lsp.enable("texlab")
