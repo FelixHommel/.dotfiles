@@ -92,6 +92,9 @@ vim.lsp.config("glsl_analyzer", {
 })
 vim.lsp.enable("glsl_analyzer")
 
+-- Gradle
+vim.lsp.enable("gradle_ls")
+
 -- Lua
 vim.lsp.config("lua-language-server", {
     cmd = { "lua-language-server" },
