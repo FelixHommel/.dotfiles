@@ -2,7 +2,7 @@
 
 # Looks
 font-family = "FiraCode Nerd Font"
-theme = light:coffee_theme,dark:duskfox
+theme = Duskfox
 
 background-opacity = 0.8
 background-blur = true
