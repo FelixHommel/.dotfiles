@@ -1,0 +1,101 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top",
+    "position": "top",
+    "margin-bottom": -7,
+    "spacing": 0,
+    
+    "modules-left": [
+        "hyprland/workspaces",
+        "custom/uptime"
+    ],
+
+    "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+        "bluetooth",
+        "network",
+        "pulseaudio",
+        "backlight",
+        "hyprland/language",
+        "battery"
+    ],
+
+    "hyprland/workspaces": {
+        "format": "{name}: {icon}",
+        "format-icons": {
+            "active": "",
+            "default": ""
+        },
+        "persistent-workspaces": {
+            "*": 3 // how many workspaces are alwyas displayed
+        }
+    },
+    "custom/uptime": {
+        "format": "{}",
+        "tooltip": false,
+        "interval": 180,
+        "exec": "$HOME/.config/waybar/scripts/uptime.sh"
+    },
+    "bluetooth": {
+        "format": "󰂲",
+        "format-on": "{icon}",
+        "format-off": "{icon}",
+        "format-connected": "{icon}",
+        "format-icons": {
+            "on":"󰂯",
+            "off": "󰂲",
+            "connected": "󰂱"
+        },
+        "on-click": "blueman-manager",
+        "tooltip-format-connected": "{device_enumerated}"
+    },
+    "clock": {
+        "tooltip": false,
+        "format": "{:%H:%M  -  %m/%d/%Y}",
+        "interval": 60
+    },
+    "network": {
+        "format-wifi": "󰤢",
+        "format-ethernet": "󰈀 ",
+        "format-disconnected": "󰤠 ",
+        "interval": 5,
+        "tooltip-format": "{essid} ({signalStrength}%)",
+        "on-click": "nm-connection-editor"
+    },
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": ["","󰃜", "󰃛", "󰃞","󰃝","󰃟","󰃠"],
+        "tooltip": false
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", " "]
+        },
+        "on-click": "pavucontrol"
+    },
+    "battery": {
+        "interval": 2,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-full": "{icon} {capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{icon} {time}",
+        "format-icons": ["", "", "", "", ""]
+    }
+}
