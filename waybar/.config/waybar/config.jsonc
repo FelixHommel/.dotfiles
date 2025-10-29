@@ -1,4 +1,5 @@
 // -*- mode: jsonc -*-
+// adapted from https://github.com/Prateek7071/dotfiles/blob/main/waybar/config.jsonc
 {
     "layer": "top",
     "position": "top",
@@ -36,7 +37,7 @@
     "custom/uptime": {
         "format": "{}",
         "tooltip": false,
-        "interval": 180,
+        "interval": 180, // in seconds
         "exec": "$HOME/.config/waybar/scripts/uptime.sh"
     },
     "bluetooth": {

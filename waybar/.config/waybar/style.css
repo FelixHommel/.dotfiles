@@ -1,4 +1,7 @@
-/* -- Global -- */
+/*
+ * -- Global --
+ * adapted from https://github.com/Prateek7071/dotfiles/blob/main/waybar/style.css
+ */
 * {
     font-family: "SF Pro Text", "JetBrainsMono Nerd Font Propo", sans-serif;
     font-size: 13px;
