@@ -134,10 +134,11 @@ vim.lsp.enable("slangd")
 vim.lsp.enable("tinymist")
 
 -- LaTeX
+-- LSP
 vim.lsp.config("texlab", {
     cmd = { "texlab" },
     filetypes = { "tex", "plaintex", "bib" },
-    root_markers = { ".latexmkrc" },
+    root_markers = { ".git", ".latexmkrc" },
     settings = {
         texlab = {
             build = {
@@ -158,3 +159,24 @@ vim.lsp.config("texlab", {
     }
 })
 vim.lsp.enable("texlab")
+
+-- Spell checking
+vim.lsp.config("ltex_plus", {
+    cmd = { "ltex-ls-plus" },
+    filetypes = { "tex", "plaintex", "bib" },
+    root_markers = { ".git", ".latexmkrc" },
+    settings = {
+        ltex = {
+            enabled = { "bib", "latex", "tex" },
+            language = "en-US",
+            additionalRules = {
+                enablePickyRules = true
+            },
+            dictionary = {
+                [ "en-US" ] = vim.fn.readfile(vim.fn.expand("~/.config/ltex/ltex.dictionary.en-US.txt"))
+            },
+            checkFrequency = "write"
+        }
+    }
+})
+vim.lsp.enable("ltex_plus")
