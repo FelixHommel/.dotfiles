@@ -121,6 +121,9 @@ vim.lsp.config("marksman", {
 })
 vim.lsp.enable("marksman")
 
+-- Protobuf
+vim.lsp.enable("pbls")
+
 -- Python
 vim.lsp.enable("basedpyright")
 
