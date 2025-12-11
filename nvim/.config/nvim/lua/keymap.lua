@@ -25,6 +25,10 @@ require("which-key").add({
         { "<leader>af", function ()
                 require("telescope.builtin").lsp_references(require("telescope.themes").get_dropdown({ winblend = 20 }))
             end, desc = "[a]ction: re[f]erences" },
-        { "<leader>aa", require("actions-preview").code_actions, desc = "[a]ction: [a]ctions" }
+        { "<leader>aa",function()  require("tiny-code-action").code_action() end, desc = "[a]ction: [a]ctions" }
+    },
+    {
+        mode = "n",
+        { "K", function() require("pretty_hover").hover() end, desc = "override regular hover docs with pretty hover docs" }
     }
 })

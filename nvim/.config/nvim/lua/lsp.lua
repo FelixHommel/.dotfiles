@@ -1,22 +1,5 @@
--- Configure inline diagnostics natively
-local on_attach = function(client)
-    vim.diagnostic.config({
-        virtual_text = true,  -- Display inline diagnostics in the buffer
-        signs = true,        -- Show diagnostic signs in the gutter
-        update_in_insert = false,
-        underline = true,
-        severity_sort = true,
-        float = {
-            focusable = false,
-            style = 'minimal',
-            border = 'rounded',
-            source = 'always'
-        }
-    }, client.bufnr)
+local on_attach = function(client, bufnr)
 end
-
--- General diagnostics settings
-vim.diagnostic.config({ virtual_lines = { only_current_line = true } })
 
 -- Bash
 vim.lsp.config("bash-language-server", {
@@ -34,7 +17,15 @@ vim.lsp.enable("bash-language-server")
 
 -- C/C++
 vim.lsp.config("clangd", {
-    cmd = { "clangd" },
+    cmd = {
+        "clangd",
+        "--background-index",
+        "--clang-tidy",
+        "--completion-style=detailed",
+        "--function-arg-placeholders",
+        "--header-insertion=iwyu",
+        "-j=16"
+    },
     filetypes = { "c", "h", "cpp", "hpp", "cuda" },
     root_markers = {
         ".clangd",
@@ -50,6 +41,16 @@ vim.lsp.config("clangd", {
             }
         },
         offsetEncoding = { "utf-8", "utf-16" }
+    },
+    settings = {
+        clangd = {
+            Completion = {
+                AllScopes = true,
+            },
+            InlayHints = {
+                Enabled = true,
+            },
+        }
     },
     on_attach = on_attach
 })
