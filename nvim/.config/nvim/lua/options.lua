@@ -66,7 +66,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- At which character to start displaying a color column
-vim.opt.colorcolumn = "110"
+vim.opt.colorcolumn = "120"
 
 -- Disable word wrap
 vim.opt.wrap = false
