@@ -112,6 +112,7 @@ vim.lsp.config("lua-language-server", {
 
 })
 vim.lsp.enable("lua-language-server")
+vim.lsp.enable("stylua")
 
 -- Marksman
 vim.lsp.config("marksman", {
