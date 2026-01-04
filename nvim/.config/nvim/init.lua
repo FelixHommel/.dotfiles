@@ -26,7 +26,8 @@ vim.g.loaded_ruby_provider = 0
 require("lazy").setup({
     spec = {
 	    { import = "plugins" },
-        { import = "plugins.lsp" }
+        { import = "plugins.lsp" },
+        { import = "plugins.neotest" }
     },
     checker = { enabled = true }
 })

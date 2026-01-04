@@ -96,6 +96,42 @@ vim.lsp.enable("glsl_analyzer")
 -- Gradle
 vim.lsp.enable("gradle_ls")
 
+-- Harper
+vim.lsp.config("harper_ls", {
+    settings = {
+        ["harper-ls"] = {
+            userDictPath = "",
+            workspaceDictPath = "",
+            fileDictPath = "",
+            linters = {
+                SpellCheck = true,
+                SpelledNumbers = false,
+                AnA = true,
+                SentenceCapitalization = false,
+                UnclosedQuotes = true,
+                WrongQuotes = false,
+                LongSentences = true,
+                RepeatedWords = true,
+                Spaces = true,
+                Matcher = true,
+                CorrectNumberSuffix = true
+            },
+            codeActions = {
+                ForceStable = false
+            },
+            markdown = {
+                IgnoreLinkTitle = true
+            },
+            diagnosticSeverity = "hint",
+            isolateEnglish = true,
+            dialect = "American",
+            ignoredLintsPath = "",
+            excludePatterns = {}
+        }
+    }
+})
+vim.lsp.enable("harper_ls")
+
 -- Lua
 vim.lsp.config("lua-language-server", {
     cmd = { "lua-language-server" },
