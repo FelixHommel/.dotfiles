@@ -164,9 +164,10 @@ vim.lsp.enable("pbls")
 
 -- Python
 vim.lsp.enable("basedpyright")
+vim.lsp.enable("ruff")
 
 -- Rust
-vim.lsp.enable("rust-analyzer")
+vim.lsp.enable("rust_analyzer")
 
 -- Slang
 vim.lsp.enable("slangd")
