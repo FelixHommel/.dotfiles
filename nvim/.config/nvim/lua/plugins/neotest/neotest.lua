@@ -6,7 +6,7 @@ return {
         "antoinemadec/FixCursorHold.nvim",
         "nvim-treesitter/nvim-treesitter",
         "rcasia/neotest-java",
-        -- "alfaix/neotest-gtest",
+        "alfaix/neotest-gtest",
         "orjangj/neotest-ctest"
     },
     keys = function()
@@ -44,7 +44,7 @@ return {
                     junit_jar = nil,
                     incremental_build = true
                 }),
-                -- require("neotest-gtest").setup({}),
+                require("neotest-gtest").setup({}),
                 require("neotest-ctest").setup({})
             }
         })
