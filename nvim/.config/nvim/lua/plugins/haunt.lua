@@ -9,38 +9,58 @@ return {
         virt_text_pos = "eol"
     },
     keys = {
-        -- TODO: Remove harpoon. This is better. Change u prefix to h
         {
-            "<leader>u",
-            group = "Ha[u]nt",
+            "<leader>h",
+            group = "[h]aunt",
             nowait = true,
             remap = false
         },
         {
-            "<leader>ua",
+            "<leader>ha",
             function() require("haunt.api").annotate() end,
-            desc = "ha[u]nt [a]nnotate",
+            desc = "[h]aunt [a]nnotate",
             nowait = true,
             remap = false
         },
         {
-            "<leader>uT",
+            "<leader>ht",
             function() require("haunt.api").toggle_annotation() end,
-            desc = "ha[u]nted [T]oggle annotation",
+            desc = "[h]aunted [t]oggle annotation",
             nowait = true,
             remap = false
         },
         {
-            "<leader>ud",
+            "<leader>hd",
             function() require("haunt.api").delete() end,
-            desc = "ha[u]nted [d]elete",
+            desc = "[h]aunted [d]elete",
             nowait = true,
             remap = false
         },
         {
-            "<leader>ul",
+            "<leader>hD",
+            function() require("haunt.api").clear_all() end,
+            desc = "[h]aunted [D]elete All",
+            nowait = true,
+            remap = false
+        },
+        {
+            "<leader>hp",
+            function() require("haunt.api").prev() end,
+            desc = "[h]aunted [p]revious bookmark",
+            nowait = true,
+            remap = false
+        },
+        {
+            "<leader>hn",
+            function() require("haunt.api").next() end,
+            desc = "[h]aunted [n]ext bookmark",
+            nowait = true,
+            remap = false
+        },
+        {
+            "<leader>ho",
             function() require("haunt.picker").show() end,
-            desc = "ha[u]nted picker",
+            desc = "[h]aunted [o]pen picker",
             nowait = true,
             remap = false
         }
