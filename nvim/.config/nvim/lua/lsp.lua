@@ -57,7 +57,7 @@ vim.lsp.config("clangd", {
 vim.lsp.enable("clangd")
 
 -- Cmake
-vim.lsp.config("cmake-language-server", {
+vim.lsp.config("cmake", {
     cmd = { "cmake-language-server" },
     filetypes = { "cmake" },
     init_options = {
@@ -65,7 +65,7 @@ vim.lsp.config("cmake-language-server", {
     },
     on_attach = on_attach
 })
-vim.lsp.enable("cmake-language-server")
+vim.lsp.enable("cmake")
 
 -- Docker
 vim.lsp.config("docker-langserver", {
