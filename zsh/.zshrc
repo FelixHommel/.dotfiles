@@ -93,15 +93,23 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# Homebrew setup
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# Set up Homebrew (if available)
+if [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
-# Setup Vulkan path
-source ~/VulkanSDK/1.4.335.0/setup-env.sh
+# Set up Vulkan (if available)
+if [[ -f "$HOME/VulkanSDK/1.4.335.0/setup-env.sh" ]]; then
+    source "$HOME/VulkanSDK/1.4.335.0/setup-env.sh"
+fi
 
-export VCPKG_ROOT="$HOME/vcpkg"
-export PATH="$VCPKG_ROOT:$PATH"
-export CMAKE_TOOLCHAIN_FILE="$VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake"
+# Set up vcpkg (if available)
+__VCPKG_ROOT="$HOME/vcpkg"
+if [[ -f VCPKG_ROOT ]]; then
+    export PATH="$__VCPKG_ROOT:$PATH"
+    export CMAKE_TOOLCHAIN_FILE="$__VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake"
+fi
+unset __VCPKG_ROOT
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
