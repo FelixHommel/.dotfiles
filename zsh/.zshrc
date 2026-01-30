@@ -112,6 +112,11 @@ if [[ -d "$__VCPKG_ROOT" ]]; then
 fi
 unset __VCPKG_ROOT
 
+# Set up uv
+if [[ -x "$HOME/.local/bin/env" ]]; then
+    . "$HOME/.local/bin/env"
+fi
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
