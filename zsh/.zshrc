@@ -105,7 +105,8 @@ fi
 
 # Set up vcpkg (if available)
 __VCPKG_ROOT="$HOME/vcpkg"
-if [[ -f VCPKG_ROOT ]]; then
+if [[ -d "$__VCPKG_ROOT" ]]; then
+	export VCPKG_ROOT="$__VCPKG_ROOT"
     export PATH="$__VCPKG_ROOT:$PATH"
     export CMAKE_TOOLCHAIN_FILE="$__VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake"
 fi
