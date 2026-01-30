@@ -84,6 +84,9 @@ vim.lsp.config("docker-compose-langserver", {
 })
 vim.lsp.enable("docker-compose-langserver")
 
+-- Github
+vim.lsp.enable("gh_actions_ls")
+
 -- GLSL
 vim.lsp.config("glsl_analyzer", {
     cmd = { "glsl_analyzer" },
