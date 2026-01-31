@@ -23,5 +23,19 @@ return {
         lazy = false,
         priority = 1000,
         name = 'embark'
+    },
+    {
+	    "rebelot/kanagawa.nvim",
+	    lazy = false,
+	    priority = 1000,
+	    name = "kanagawa",
+	    opts = {
+	        compile = true
+	    }
+    },
+    {
+        "thesimonho/kanagawa-paper.nvim",
+        lazy = false,
+        priority = 1000,
     }
 }
