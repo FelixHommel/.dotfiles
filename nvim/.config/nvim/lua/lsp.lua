@@ -135,6 +135,9 @@ vim.lsp.config("harper_ls", {
 })
 vim.lsp.enable("harper_ls")
 
+-- Hyprland
+vim.lsp.enable('hyprls')
+
 -- Lua
 vim.lsp.config("lua-language-server", {
     cmd = { "lua-language-server" },
