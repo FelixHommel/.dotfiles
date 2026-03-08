@@ -39,7 +39,7 @@ alias gst="git status"
 alias zed="zeditor"
 
 # If nvim is available, configure it as man page viewer
-if command -v nvim >dev/null 2>&1; then
+if command -v nvim >/dev/null 2>&1; then
     export MANPAGER="nvim +Man!"
 fi
 
