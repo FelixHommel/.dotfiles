@@ -48,7 +48,7 @@ fi
 if command -v batcat >/dev/null 2>&1; then
     alias rcat="$(which cat)"
     alias cat="$(which batcat)"
-elif command -c bat >/dev/null 2>&1; then
+elif command -v bat >/dev/null 2>&1; then
     alias rcat="$(which cat)"
     alias cat="$(which bat)"
 fi
