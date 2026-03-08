@@ -38,6 +38,11 @@ alias gst="git status"
 # zed
 alias zed="zeditor"
 
+# If nvim is available, configure it as man page viewer
+if command -v nvim >dev/null 2>&1; then
+    export MANPAGER="nvim +Man!"
+fi
+
 # bat support
 # just like https://github.com/fdellwing/zsh-bat just more lightweight
 if command -v batcat >/dev/null 2>&1; then
