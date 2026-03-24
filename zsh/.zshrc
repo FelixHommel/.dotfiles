@@ -122,6 +122,15 @@ if [[ -x "$HOME/.local/bin/env" ]]; then
     . "$HOME/.local/bin/env"
 fi
 
+# NodeJS Version Manager
+export __NVM_DIR="$HOME/.nvm"
+if [[ -d "$__NVM_DIR" ]]; then
+    export NVM_DIR="$__NVM_DIR"
+    [ -s "$__NVM_DIR/nvm.sh" ] && \. "$__NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$__NVM_DIR/bash_completion" ] && \. "$__NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
+unset __NVM_DIR
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
