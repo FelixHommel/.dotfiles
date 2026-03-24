@@ -1,24 +1,20 @@
-# Path to your Oh My Zsh installation.
+# Zsh stuff
+## Path to Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
 zstyle ':omz:update' mode reminder
 
-# zsh settings
+## Zsh settings
 CASE_SENSITIVE="true"
 
-# zsh built-in plugins
+## Zsh built-in plugins
 plugins=(
     git-commit
     sudo
 )
-
 source $ZSH/oh-my-zsh.sh
 
-## exports ##
-export EDITOR="nvim"
-
-## aliases ##
-# git
+# Aliases
+## git
 alias g="git"
 alias ga="git add"
 alias gb="git branch"
@@ -35,16 +31,41 @@ alias grs="git restore"
 alias grss="git reset --staged"
 alias gst="git status"
 
-# zed
+## zed
 alias zed="zeditor"
 
-# If nvim is available, configure it as man page viewer
+# Zplug
+source $HOME/.zplug/init.zsh
+
+## Install plugins
+zplug "zplug/zplug", hook-build:"zplug --self-manage"
+
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-autosuggestions", defer:2
+zplug "MichaelAquilina/zsh-you-should-use"
+
+## Load theme
+zplug "spaceship-prompt/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+
+## Install any uninstalled plugins
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+## Load plugins
+zplug load
+
+# Exports and Setup of Other Programs
+## If nvim is available, configure it as default editor and man page viewer
 if command -v nvim >/dev/null 2>&1; then
+    export EDITOR="nvim"
     export MANPAGER="nvim +Man!"
 fi
 
-# bat support
-# just like https://github.com/fdellwing/zsh-bat just more lightweight
+## Easy Bat Support (just like https://github.com/fdellwing/zsh-bat)
 if command -v batcat >/dev/null 2>&1; then
     alias rcat="$(which cat)"
     alias cat="$(which batcat)"
@@ -53,36 +74,7 @@ elif command -v bat >/dev/null 2>&1; then
     alias cat="$(which bat)"
 fi
 
-## zplug ##
-source $HOME/.zplug/init.zsh
-
-# Install plugins
-zplug "zplug/zplug", hook-build:"zplug --self-manage"
-
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-autosuggestions", defer:2
-zplug "MichaelAquilina/zsh-you-should-use"
-
-# Load theme
-zplug "spaceship-prompt/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
-
-# headline theme needs to be installed as plugin and activated after zplug load
-# zplug "Moarram/headline", from:github, as:plugin
-
-# Install any uninstalled plugins
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-# Load plugins
-zplug load
-
-# Uncomment when using headline
-# source $HOME/.zplug/repos/Moarram/headline/headline.zsh-theme
-
+## Conda Setup
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/felix/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -98,17 +90,17 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# Set up Homebrew (if available)
+## Set up Homebrew
 if [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-# Set up Vulkan (if available)
+## Set up VulkanSDK
 if [[ -f "$HOME/VulkanSDK/1.4.335.0/setup-env.sh" ]]; then
     source "$HOME/VulkanSDK/1.4.335.0/setup-env.sh"
 fi
 
-# Set up vcpkg (if available)
+## Set up vcpkg
 __VCPKG_ROOT="$HOME/vcpkg"
 if [[ -d "$__VCPKG_ROOT" ]]; then
 	export VCPKG_ROOT="$__VCPKG_ROOT"
@@ -117,12 +109,12 @@ if [[ -d "$__VCPKG_ROOT" ]]; then
 fi
 unset __VCPKG_ROOT
 
-# Set up uv
+## Set up uv
 if [[ -x "$HOME/.local/bin/env" ]]; then
     . "$HOME/.local/bin/env"
 fi
 
-# NodeJS Version Manager
+## Set up NodeJS Version Manager
 export __NVM_DIR="$HOME/.nvm"
 if [[ -d "$__NVM_DIR" ]]; then
     export NVM_DIR="$__NVM_DIR"
@@ -131,6 +123,8 @@ if [[ -d "$__NVM_DIR" ]]; then
 fi
 unset __NVM_DIR
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+## Set up Sdkman
+# NOTE: THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
