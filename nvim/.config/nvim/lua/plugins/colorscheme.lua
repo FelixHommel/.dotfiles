@@ -37,5 +37,13 @@ return {
         "thesimonho/kanagawa-paper.nvim",
         lazy = false,
         priority = 1000,
+    },
+    {
+        "danfry1/lume",
+        lazy = false,
+        priority = 1000,
+        opts = {
+            italics = true
+        }
     }
 }
