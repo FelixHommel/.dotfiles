@@ -1,6 +1,17 @@
 local on_attach = function(client, bufnr)
 end
 
+-- Astro
+vim.lsp.config("astro", {
+    init_options = {
+        typescript = {}
+    }
+})
+vim.lsp.enable("astro")
+
+-- CSS
+vim.lsp.enable("cssls");
+
 -- Bash
 vim.lsp.config("bash-language-server", {
     cmd = { "bash-language-server", "start" },
