@@ -19,12 +19,6 @@ return {
         }
     },
     {
-        'embark-theme/vim',
-        lazy = false,
-        priority = 1000,
-        name = 'embark'
-    },
-    {
 	    "rebelot/kanagawa.nvim",
 	    lazy = false,
 	    priority = 1000,
@@ -39,11 +33,11 @@ return {
         priority = 1000,
     },
     {
-        "danfry1/lume",
-        lazy = false,
+        "ember-theme/nvim",
+        name = "ember",
         priority = 1000,
         opts = {
-            italics = true
+            variant = "ember"
         }
     }
 }
