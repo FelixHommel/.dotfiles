@@ -59,6 +59,11 @@ fi
 zplug load
 
 # Exports and Setup of Other Programs
+## Setup bob, so that nvim is available
+if [[ -d "$HOME/.local/share/bob" ]]; then
+    export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
+fi
+
 ## If nvim is available, configure it as default editor and man page viewer
 if command -v nvim >/dev/null 2>&1; then
     export EDITOR="nvim"
