@@ -2,7 +2,7 @@ return {
     "j-hui/fidget.nvim",
     event = { "BufReadPre", "BufNewFile" },
     opts = {
-        notifications = {
+        notification = {
             window = {
                 avoid = {
                     "NvimTree",
