@@ -105,6 +105,10 @@ if [[ -f "$HOME/VulkanSDK/1.4.335.0/setup-env.sh" ]]; then
     source "$HOME/VulkanSDK/1.4.335.0/setup-env.sh"
 fi
 
+if [[ -f "$HOME/vulkanSDK/1.4.341.1/setup-env.sh" ]]; then
+    source "$HOME/vulkanSDK/1.4.341.1/setup-env.sh"
+fi
+
 ## Set up vcpkg
 __VCPKG_ROOT="$HOME/vcpkg"
 if [[ -d "$__VCPKG_ROOT" ]]; then
