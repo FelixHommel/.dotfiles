@@ -3,26 +3,25 @@ return {
     event = "VeryLazy",
     opts = {}, -- Important even if empty
     keys = {
-        -- Window navigation
-        { "<C-k>", ":NeolijUp<CR>", mode = { "n", "t" }, desc = "Move up", silent = true  },
-        { "<C-j>", ":NeolijDown<CR>", mode = { "n", "t" }, desc = "Move down", silent = true  },
-        { "<C-h>", ":NeolijLeftTab<CR>", mode = { "n", "t" }, desc = "Move left", silent = true  },
-        { "<C-l>", ":NeolijRightTab<CR>", mode = { "n", "t" }, desc = "Move right", silent = true  },
+        -- Pane and Tab navigation
+        { "<A-h>", ":NeolijLeftSmart<CR>", mode = { "n", "t" }, desc = "[z]ellij move to left pane", silent = true  },
+        { "<A-j>", function() require("neolij").zellij_action("move-focus down") end, mode = { "n", "t" }, desc = "[z]ellij move to down pane", silent = true  },
+        { "<A-k>", function() require("neolij").zellij_action("move-focus up") end, mode = { "n", "t" }, desc = "[z]ellij move to upp pane", silent = true  },
+        { "<A-l>", ":NeolijRightSmart<CR>", mode = { "n", "t" }, desc = "[z]ellij move to right pane", silent = true  },
+        { "<A-f>", function () require("neolij").zellij_action("toggle-floating-panes") end, mode = { "n", "t" }, desc = "[z]ellij toggle [f]loating window", silent = true  },
 
         -- Tab actions
-        { "<leader>zt", ":NeolijNewTab<CR>", desc = "New Zellij Tab", silent = true  },
-        { "<leader>zr", ":NeolijRenameTab<CR>", desc = "Rename Zellij Tab", silent = true  },
-        { "<leader>zl", ":NeolijMoveTabLeft<CR>", desc = "Move Tab Left", silent = true  },
-        { "<leader>zL", ":NeolijMoveTabRight<CR>", desc = "Move Tab Right", silent = true  },
+        { "<leader>ztn", ":NeolijNewTab<CR>", desc = "[z]ellij [t]ab [n]ew", silent = true  },
+        { "<leader>ztr", ":NeolijRenameTab<CR>", desc = "[z]ellij [t]ab [r]ename", silent = true  },
 
         -- Pane actions
-        { "<leader>zp", ":NeolijNewPane -d right<CR>", desc = "New Zellij Pane vertical", silent = true  },
-        { "<leader>zP", ":NeolijNewPane -d down<CR>", desc = "New Zellij Pane horizontal", silent = true  },
-        { "<leader>zf", ":NeolijNewPane -f<CR>", desc = "New Zellij Floating Pane", silent = true  },
-        { "<leader>zn", ":NeolijRenamePane<CR>", desc = "Rename Zellij Pane", silent = true  },
-        { "<leader>zu", ":NeolijMovePaneUp<CR>", desc = "Move Pane Up", silent = true  },
-        { "<leader>zd", ":NeolijMovePaneDown<CR>", desc = "Move Pane Down", silent = true  },
-        { "<leader>zh", ":NeolijMovePaneLeft<CR>", desc = "Move Pane Left", silent = true  },
-        { "<leader>zR", ":NeolijMovePaneRight<CR>", desc = "Move Pane Right", silent = true  }
+        { "<leader>zpn", ":NeolijNewPane -d right<CR>", desc = "[z]ellij [p]ane [n]ew to the right", silent = true  },
+        { "<leader>zpN", ":NeolijNewPane -d down<CR>", desc = "[z]ellij [p]ane [n]ew to the below", silent = true  },
+        { "<leader>zpf", ":NeolijNewPane -f<CR>", desc = "[z]ellij [p]ane [f]loating window new", silent = true  },
+        { "<leader>zpr", ":NeolijRenamePane<CR>", desc = "[z]elli [p]ane [r]ename", silent = true  },
+        { "<leader>zph", ":NeolijMovePaneLeft<CR>", desc = "[z]ellij [p]ane move to the left", silent = true  },
+        { "<leader>zpj", ":NeolijMovePaneDown<CR>", desc = "[z]ellij [p]ane move down", silent = true  },
+        { "<leader>zpk", ":NeolijMovePaneUp<CR>", desc = "[z]ellij [p]ane move up", silent = true  },
+        { "<leader>zpl", ":NeolijMovePaneRight<CR>", desc = "[z]ellij [p]ane move to the right", silent = true  }
     }
 }
