@@ -1,5 +1,16 @@
-local on_attach = function(client, bufnr)
-end
+-- Add inlay hints to LSP clients that support the feature (i.e., rust-analyzer)
+-- vim.api.nvim_create_autocmd("LspAttach", {
+--     callback = function(ev)
+--         local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
+--         -- Inlay hints display inferred types, etc.
+--         if client:supports_method("inlayHint/resolve") then
+--             vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
+--         end
+--     end
+-- })
+
+-- Assembly
+vim.lsp.enable("asm_lsp")
 
 -- Astro
 vim.lsp.config("astro", {
@@ -22,7 +33,6 @@ vim.lsp.config("bash-language-server", {
             globPattern = vim.env.GLOB_PATTERN or "*@(.sh|.inc|.bash|.command)"
         }
     },
-    on_attach = on_attach
 })
 vim.lsp.enable("bash-language-server")
 
@@ -66,7 +76,6 @@ vim.lsp.config("clangd", {
             },
         }
     },
-    on_attach = on_attach
 })
 vim.lsp.enable("clangd")
 
@@ -75,7 +84,6 @@ vim.lsp.config("docker-langserver", {
     cmd = { "docker-langserver", "--stdio" },
     filetypes = { "Dockerfile" },
     root_markers = { "Dockerfile" },
-    on_attach = on_attach
 })
 vim.lsp.enable("docker-langserver")
 
@@ -83,7 +91,7 @@ vim.lsp.config("docker-compose-langserver", {
     cmd = { "docker-compose-langserver", "--stdio" },
     filetypes = { "yaml.docker-compose" },
     root_markers = { "docker-compose.yaml", "docker-compose.yml", "compose.yaml", "compose.yml" },
-    on_attach = on_attach
+ 
 })
 vim.lsp.enable("docker-compose-langserver")
 
@@ -95,7 +103,6 @@ vim.lsp.config("glsl_analyzer", {
     cmd = { "glsl_analyzer" },
     filetypes = { "glsl", "vert", "frag", "tesc", "geom", "comp" },
     root_markers = { ".git" },
-    on_attach = on_attach
 })
 vim.lsp.enable("glsl_analyzer")
 
@@ -153,8 +160,6 @@ vim.lsp.config("lua-language-server", {
             diagnostics = { globals = { "vim" } }
         }
     },
-    on_attach = on_attach
-
 })
 vim.lsp.enable("lua-language-server")
 vim.lsp.enable("stylua")
@@ -164,7 +169,6 @@ vim.lsp.config("marksman", {
     cmd = { "marksman", "server" },
     filetypes = { "markdown", "md", "markdown.mdx" },
     root_markers = { ".git" },
-    on_attach = on_attach
 })
 vim.lsp.enable("marksman")
 
@@ -176,6 +180,26 @@ vim.lsp.enable("basedpyright")
 vim.lsp.enable("ruff")
 
 -- Rust
+vim.lsp.config("rust_analyzer", {
+    settings = {
+        ["rust-analyzer"] = {
+            cargo = {
+                buildScripts = {
+                    enable = true
+                }
+            },
+            imports = {
+                granularity = {
+                    group = "module"
+                },
+                prefix = "self"
+            },
+            procMacro = {
+                enable = true
+            }
+        }
+    }
+})
 vim.lsp.enable("rust_analyzer")
 
 -- Slang
