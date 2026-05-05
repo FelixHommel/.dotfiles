@@ -1,8 +1,8 @@
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*",
-  callback = function(args)
-    require("conform").format({ bufnr = args.buf })
-  end,
+    pattern = "*",
+    callback = function(args)
+        require("conform").format({ bufnr = args.buf })
+    end,
 })
 
 return {
@@ -11,7 +11,9 @@ return {
         formatters_by_ft = {
             cmake = { "gersemi" },
             cpp = { "clang-format" },
-            rust = { "rustfmt", lsp_format = "fallback" }
+            python = { "ruff_format" },
+            rust = { "rustfmt", lsp_format = "fallback" },
+            typst = { "prettypst" }
         }
     }
 }
