@@ -79,6 +79,11 @@ elif command -v bat >/dev/null 2>&1; then
     alias cat="$(which bat)"
 fi
 
+## CUDA
+if [[ -d "/usr/local/cuda-13.3/" ]]; then
+    export PATH="/usr/local/cuda-13.3/bin:$PATH"
+fi
+
 ## Conda Setup
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
