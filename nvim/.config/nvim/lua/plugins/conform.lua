@@ -11,6 +11,7 @@ return {
         formatters_by_ft = {
             cmake = { "gersemi" },
             cpp = { "clang-format" },
+            lua  = { "stylua" },
             python = { "ruff_format" },
             rust = { "rustfmt", lsp_format = "fallback" },
             typst = { "prettypst" }
