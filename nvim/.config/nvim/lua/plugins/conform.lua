@@ -10,6 +10,7 @@ return {
     opts = {
         formatters_by_ft = {
             cmake = { "gersemi" },
+            cuda = { "clang-format" },
             cpp = { "clang-format" },
             lua  = { "stylua" },
             python = { "ruff_format" },
