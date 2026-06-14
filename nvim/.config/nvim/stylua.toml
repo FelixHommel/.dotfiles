@@ -1,5 +1,9 @@
+syntax = "All"
 column_width = 120
-line_ending = "Unix"
+line_endings = "Unix"
 indent_type = "Spaces"
 indent_width = 4
 quote_style = "AutoPreferDouble"
+
+[sort_requires]
+enabled = true
