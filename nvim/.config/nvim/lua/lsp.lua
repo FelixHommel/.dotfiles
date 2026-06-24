@@ -15,13 +15,13 @@ vim.lsp.enable("asm_lsp")
 -- Astro
 vim.lsp.config("astro", {
     init_options = {
-        typescript = {}
-    }
+        typescript = {},
+    },
 })
 vim.lsp.enable("astro")
 
 -- CSS
-vim.lsp.enable("cssls");
+vim.lsp.enable("cssls")
 
 -- Bash
 vim.lsp.config("bash-language-server", {
@@ -30,8 +30,8 @@ vim.lsp.config("bash-language-server", {
     root_markers = { ".git" },
     settings = {
         bashIde = {
-            globPattern = vim.env.GLOB_PATTERN or "*@(.sh|.inc|.bash|.command)"
-        }
+            globPattern = vim.env.GLOB_PATTERN or "*@(.sh|.inc|.bash|.command)",
+        },
     },
 })
 vim.lsp.enable("bash-language-server")
@@ -48,7 +48,7 @@ vim.lsp.config("clangd", {
         "--completion-style=detailed",
         "--function-arg-placeholders",
         "--header-insertion=iwyu",
-        "-j=16"
+        "-j=16",
     },
     filetypes = { "c", "h", "cpp", "hpp", "cuda" },
     root_markers = {
@@ -56,15 +56,15 @@ vim.lsp.config("clangd", {
         ".clang-tidy",
         ".clang-format",
         "compile_commands.json",
-        ".git"
+        ".git",
     },
     capabilities = {
         textDocument = {
             completion = {
-                editsNearCursor = true
-            }
+                editsNearCursor = true,
+            },
         },
-        offsetEncoding = { "utf-8", "utf-16" }
+        offsetEncoding = { "utf-8", "utf-16" },
     },
     settings = {
         clangd = {
@@ -74,7 +74,7 @@ vim.lsp.config("clangd", {
             InlayHints = {
                 Enabled = true,
             },
-        }
+        },
     },
 })
 vim.lsp.enable("clangd")
@@ -91,7 +91,6 @@ vim.lsp.config("docker-compose-langserver", {
     cmd = { "docker-compose-langserver", "--stdio" },
     filetypes = { "yaml.docker-compose" },
     root_markers = { "docker-compose.yaml", "docker-compose.yml", "compose.yaml", "compose.yml" },
- 
 })
 vim.lsp.enable("docker-compose-langserver")
 
@@ -127,26 +126,26 @@ vim.lsp.config("harper_ls", {
                 RepeatedWords = true,
                 Spaces = true,
                 Matcher = true,
-                CorrectNumberSuffix = true
+                CorrectNumberSuffix = true,
             },
             codeActions = {
-                ForceStable = false
+                ForceStable = false,
             },
             markdown = {
-                IgnoreLinkTitle = true
+                IgnoreLinkTitle = true,
             },
             diagnosticSeverity = "hint",
             isolateEnglish = true,
             dialect = "American",
             ignoredLintsPath = "",
-            excludePatterns = {}
-        }
-    }
+            excludePatterns = {},
+        },
+    },
 })
 vim.lsp.enable("harper_ls")
 
 -- Hyprland
-vim.lsp.enable('hyprls')
+vim.lsp.enable("hyprls")
 
 -- Lua
 vim.lsp.config("lua-language-server", {
@@ -157,8 +156,8 @@ vim.lsp.config("lua-language-server", {
         Lua = {
             hint = { enabled = true },
             telemetry = { enabled = false },
-            diagnostics = { globals = { "vim" } }
-        }
+            diagnostics = { globals = { "vim" } },
+        },
     },
 })
 vim.lsp.enable("lua-language-server")
@@ -185,20 +184,20 @@ vim.lsp.config("rust_analyzer", {
         ["rust-analyzer"] = {
             cargo = {
                 buildScripts = {
-                    enable = true
-                }
+                    enable = true,
+                },
             },
             imports = {
                 granularity = {
-                    group = "module"
+                    group = "module",
                 },
-                prefix = "self"
+                prefix = "self",
             },
             procMacro = {
-                enable = true
-            }
-        }
-    }
+                enable = true,
+            },
+        },
+    },
 })
 vim.lsp.enable("rust_analyzer")
 
@@ -220,18 +219,18 @@ vim.lsp.config("texlab", {
                 args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
                 executable = "latexmk",
                 forwardSearchAfter = true,
-                onSave = false
+                onSave = false,
             },
             forwardSearch = {
                 executable = "qpdfview",
-                args = { "--unique", "%p#src:%f:%l:1" }
+                args = { "--unique", "%p#src:%f:%l:1" },
             },
             latexFormatter = "latexindent",
             latexindent = {
-                modifyLineBreaks = false
-            }
-        }
-    }
+                modifyLineBreaks = false,
+            },
+        },
+    },
 })
 vim.lsp.enable("texlab")
 
@@ -245,13 +244,16 @@ vim.lsp.config("ltex_plus", {
             enabled = { "bib", "latex", "tex" },
             language = "en-US",
             additionalRules = {
-                enablePickyRules = true
+                enablePickyRules = true,
             },
             dictionary = {
-                [ "en-US" ] = vim.fn.readfile(vim.fn.expand("~/.config/ltex/ltex.dictionary.en-US.txt"))
+                ["en-US"] = vim.fn.readfile(vim.fn.expand("~/.config/ltex/ltex.dictionary.en-US.txt")),
             },
-            checkFrequency = "write"
-        }
-    }
+            checkFrequency = "write",
+        },
+    },
 })
 vim.lsp.enable("ltex_plus")
+
+-- VHDL
+vim.lsp.enable("vhdl_ls")
