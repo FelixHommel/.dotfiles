@@ -40,6 +40,13 @@ vim.lsp.enable("bash-language-server")
 vim.lsp.enable("neocmake")
 
 -- C/C++
+local nproc = tonumber(vim.fn.system({ "nproc" }))
+local jnproc = "--j=1"
+
+if nproc >= 2 then
+    jnproc = "--j=" .. (nproc / 2)
+end
+
 vim.lsp.config("clangd", {
     cmd = {
         "clangd",
@@ -48,7 +55,7 @@ vim.lsp.config("clangd", {
         "--completion-style=detailed",
         "--function-arg-placeholders",
         "--header-insertion=iwyu",
-        "-j=16",
+        jnproc,
     },
     filetypes = { "c", "h", "cpp", "hpp", "cuda" },
     root_markers = {
