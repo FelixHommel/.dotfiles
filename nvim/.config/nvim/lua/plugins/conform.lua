@@ -12,10 +12,10 @@ return {
             cmake = { "gersemi" },
             cuda = { "clang-format" },
             cpp = { "clang-format" },
-            lua  = { "stylua" },
+            lua = { "stylua" },
             python = { "ruff_format" },
             rust = { "rustfmt", lsp_format = "fallback" },
-            typst = { "prettypst" }
-        }
-    }
+            typst = { "typstyle" },
+        },
+    },
 }
