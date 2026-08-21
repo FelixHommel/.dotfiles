@@ -86,6 +86,9 @@ vim.lsp.enable("clangd")
 -- CSS
 vim.lsp.enable("cssls")
 
+-- C#
+vim.lsp.enable("roslyn_ls")
+
 -- Docker
 vim.lsp.config("docker-langserver", {
     cmd = { "docker-langserver", "--stdio" },

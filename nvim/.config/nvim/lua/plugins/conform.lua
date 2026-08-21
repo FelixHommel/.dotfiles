@@ -12,6 +12,7 @@ return {
             cmake = { "gersemi" },
             cuda = { "clang-format" },
             cpp = { "clang-format" },
+            cs = { "csharpier" },
             lua = { "stylua" },
             python = { "ruff_format" },
             rust = { "rustfmt", lsp_format = "fallback" },
