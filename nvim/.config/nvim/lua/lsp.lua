@@ -20,9 +20,6 @@ vim.lsp.config("astro", {
 })
 vim.lsp.enable("astro")
 
--- CSS
-vim.lsp.enable("cssls")
-
 -- Bash
 vim.lsp.config("bash-language-server", {
     cmd = { "bash-language-server", "start" },
@@ -85,6 +82,9 @@ vim.lsp.config("clangd", {
     },
 })
 vim.lsp.enable("clangd")
+
+-- CSS
+vim.lsp.enable("cssls")
 
 -- Docker
 vim.lsp.config("docker-langserver", {
