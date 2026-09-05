@@ -13,7 +13,7 @@ hl.bind(binds.mainMod .. " + R", hl.dsp.exec_cmd(binds.launcher))
 hl.bind(binds.mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(binds.mainMod .. " + O", hl.dsp.layout("togglesplit")) -- dwindle only
 hl.bind(binds.mainMod .. " + B", hl.dsp.exec_cmd("hyprshot -m output --clipboard-only"))
-hl.bind(binds.mainMod .. " + SPACE", hl.dsp.exec_cmd("hyprctl switchxkblayout at-translated-set-2-keyboard next"))
+hl.bind(binds.mainMod .. " + SPACE", hl.dsp.exec_cmd("hyprctl switchxkblayout all next"))
 
 -- Move focus with binds.mainMod + hjkl
 hl.bind(binds.mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
