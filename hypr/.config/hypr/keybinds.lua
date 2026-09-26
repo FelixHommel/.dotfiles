@@ -2,17 +2,20 @@
 ---- KEYBINDINGS ----
 ---------------------
 
--- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
-
 local binds = require("config")
 
-hl.bind(binds.mainMod .. " + T", hl.dsp.exec_cmd(binds.terminal))
+-- Window actions
 hl.bind(binds.mainMod .. " + C", hl.dsp.window.close())
 hl.bind(binds.mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(binds.mainMod .. " + R", hl.dsp.exec_cmd(binds.launcher))
 hl.bind(binds.mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(binds.mainMod .. " + O", hl.dsp.layout("togglesplit")) -- dwindle only
-hl.bind(binds.mainMod .. " + B", hl.dsp.exec_cmd("hyprshot -m output --clipboard-only"))
+
+-- Programs and Tools
+hl.bind(binds.mainMod .. " + T", hl.dsp.exec_cmd(binds.terminal))
+hl.bind(binds.mainMod .. " + R", hl.dsp.exec_cmd(binds.launcher))
+hl.bind("CTRL + SHIFT + S", hl.dsp.exec_cmd("hyprshot -m region --clipboard-only"))
+
+-- Utility
 hl.bind(binds.mainMod .. " + SPACE", hl.dsp.exec_cmd("hyprctl switchxkblayout all next"))
 
 -- Move focus with binds.mainMod + hjkl
@@ -23,10 +26,9 @@ hl.bind(binds.mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
 
 -- Switch workspaces with binds.mainMod + [0-9]
 -- Move active window to a workspace with binds.mainMod + SHIFT + [0-9]
-for i = 1, 10 do
-	local key = i % 10 -- 10 maps to key 0
-	hl.bind(binds.mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-	hl.bind(binds.mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+for i = 0, 9 do
+	hl.bind(binds.mainMod .. " + " .. i, hl.dsp.focus({ workspace = i }))
+	hl.bind(binds.mainMod .. " + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
 end
 
 -- Example special workspace (scratchpad)
