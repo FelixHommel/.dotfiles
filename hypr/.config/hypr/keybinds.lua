@@ -14,6 +14,8 @@ hl.bind(binds.mainMod .. " + O", hl.dsp.layout("togglesplit")) -- dwindle only
 hl.bind(binds.mainMod .. " + T", hl.dsp.exec_cmd(binds.terminal))
 hl.bind(binds.mainMod .. " + R", hl.dsp.exec_cmd(binds.launcher))
 hl.bind("CTRL + SHIFT + S", hl.dsp.exec_cmd("hyprshot -m region --clipboard-only"))
+hl.bind(binds.mainMod .. " + X", hl.dsp.exec_cmd("hyprlock --grace 5 --quiet"))
+hl.bind(binds.mainMod .. " + Z", hl.dsp.exec_cmd("systemctl hibernate"))
 
 -- Utility
 hl.bind(binds.mainMod .. " + SPACE", hl.dsp.exec_cmd("hyprctl switchxkblayout all next"))
