@@ -10,21 +10,21 @@ return {
         "folke/todo-comments.nvim",
         {
             "nvim-telescope/telescope-fzf-native.nvim",
-            build = "make"
-        }
+            build = "make",
+        },
     },
     opts = {
         defaults = {
-            path_display = "smart"
+            path_display = "smart",
         },
         pickers = {
             find_files = {
-                theme = "dropdown"
-            }
+                theme = "dropdown",
+            },
         },
         extensions = {
-            fzf = {}
-        }
+            fzf = {},
+        },
     },
     config = function(_, opts)
         require("telescope").setup(opts)
@@ -37,7 +37,5 @@ return {
         { "<leader>t", group = "[t]elescope" },
         { "<leader>tf", "<cmd>Telescope find_files<cr>", desc = "[t]elescope [f]ile" },
         { "<leader>ts", "<cmd>Telescope live_grep<cr>", desc = "[t]elescope [s]earch" },
-        { "<leader>tt", "<cmd>TodoTelescope<cr>", desc = "[t]elescope [t]odo" }
-    }
-
+    },
 }
