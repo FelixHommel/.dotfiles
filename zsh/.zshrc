@@ -137,6 +137,13 @@ if [[ -d "$__NVM_DIR" ]]; then
 fi
 unset __NVM_DIR
 
+## Configure dotnet tools
+__DOTNET_DIR="$HOME/.dotnet/tools"
+if [[ -d "$__DOTNET_DIR" ]]; then
+    export PATH="$__DOTNET_DIR:$PATH"
+fi
+unset __DOTNET_DIR
+
 ## Set up Sdkman
 # NOTE: THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
