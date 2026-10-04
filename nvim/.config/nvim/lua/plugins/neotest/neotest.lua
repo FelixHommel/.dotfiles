@@ -5,56 +5,73 @@ return {
         "nvim-lua/plenary.nvim",
         "antoinemadec/FixCursorHold.nvim",
         "nvim-treesitter/nvim-treesitter",
-        "rcasia/neotest-java",
-        "alfaix/neotest-gtest",
-        "orjangj/neotest-ctest"
+        "orjangj/neotest-ctest",
+        "nsidorenco/neotest-vstest",
     },
-    keys =  {
+    keys = {
         {
-            "<leader>ta",
-            function() require("neotest").run.run(vim.fn.expand("%")) end,
-            desc = "Run File"
+            "<leader>t",
+            desc = "neotest",
         },
         {
-            "<leader>tt",
-            function() require("neotest").run.run() end,
-            desc = "Run Nearest"
+            "<leader>ta",
+            function()
+                require("neotest").run.run(vim.fn.expand("%"))
+            end,
+            desc = "[t]est [a]ll (in current file)",
+        },
+        {
+            "<leader>tc",
+            function()
+                require("neotest").run.run()
+            end,
+            desc = "[t]est [c]losest",
         },
         {
             "<leader>tw",
-            function() require("neotest").run.run(vim.loop.cwd()) end,
-            desc = "Run Workspace"
+            function()
+                require("neotest").run.run(vim.loop.cwd())
+            end,
+            desc = "[t]est [w]orkspace",
         },
         {
-            "<leader>tr",
+            "<leader>tt",
             function()
-                -- This will only show the output from the test framework
-                require("neotest").output.open({ short = true, auto_close = true })
+                require("neotest").output_panel.toggle()
             end,
-            desc = "Results (short)",
+            desc = "[t]est [t]oggle output panel",
         },
         {
-            "<leader>tR",
+            "<leader>ty",
             function()
-                -- This will show the classic CTest log output.
-                -- The output usually spans more than can fit the require("neotest") floating window,
-                -- so using 'enter = true' to enable normal navigation within the window
-                -- is recommended.
-                require("neotest").output.open({ enter = true })
+                require("neotest").summary()
             end,
-            desc = "Results (full)",
-        }
+            desc = "[t]est summar[y]",
+        },
+        {
+            "<leader>td",
+            function()
+                require("neotest").diagnostics()
+            end,
+            desc = "[t]est [d]iagnostics",
+        },
     },
     config = function()
         require("neotest").setup({
             adapters = {
-                require("neotest-java")({
-                    junit_jar = nil,
-                    incremental_build = true
+                require("neotest-ctest").setup({
+                    dap_adapter = "codelldb",
+                    is_test_file = function(filename)
+                        local suffix = "Test"
+                        local name = filename:match("^(.*)%.[^%.]+$") or filename
+
+                        return name:sub(-#suffix) == suffix and vim.endswith(filename, ".cpp")
+                    end,
+                    frameworks = { "gtest" },
+                    cmd = { "ctest", "--preset", "clang-debug" },
                 }),
-                require("neotest-gtest").setup({}),
-                require("neotest-ctest").setup({})
-            }
+                require("neotest-vstest"),
+            },
         })
-    end
+    end,
 }
