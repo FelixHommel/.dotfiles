@@ -93,22 +93,6 @@ if [[ -d "/usr/local/cuda-13.3/" ]]; then
     export PATH="/usr/local/cuda-13.3/bin:$PATH"
 fi
 
-## Conda Setup
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/felix/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/felix/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/home/felix/miniforge3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/felix/miniforge3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
 ## Set up Homebrew
 if [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
