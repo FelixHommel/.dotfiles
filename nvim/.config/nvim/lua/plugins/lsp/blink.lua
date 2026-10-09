@@ -2,7 +2,7 @@ return {
     "saghen/blink.cmp",
     dependencies = {
         "L3MON4D3/LuaSnip",
-        "echasnovski/mini.icons"
+        "echasnovski/mini.icons",
     },
     version = "1.*",
     opts = {
@@ -13,36 +13,39 @@ return {
             ["<C-s>"] = { "select_and_accept", "fallback" },
             ["<C-x>"] = { "cancel", "fallback" },
             ["<C-n>"] = { "snippet_forward", "fallback" },
-            ["<C-p>"] = { "snippet_backward", "fallback" }
+            ["<C-p>"] = { "snippet_backward", "fallback" },
         },
         appearance = {
-            nerd_font_variant = "normal"
+            nerd_font_variant = "normal",
         },
         completion = {
             documentation = {
                 auto_show = true,
                 auto_show_delay_ms = 500,
-                window = { border = "single" }
-            }
+                window = { border = "single" },
+            },
         },
         sources = {
             default = {
                 "lsp",
                 "path",
                 "snippets",
-                "buffer"
-            }
+                "buffer",
+            },
+            per_filetype = {
+                codecompanion = { "codecompanion" },
+            },
         },
         fuzzy = {
             implementation = "prefer_rust_with_warning",
             sorts = {
                 "exact",
                 "score",
-                "sort_text"
-            }
+                "sort_text",
+            },
         },
         snippets = {
-            preset = "luasnip"
-        }
-    }
+            preset = "luasnip",
+        },
+    },
 }
