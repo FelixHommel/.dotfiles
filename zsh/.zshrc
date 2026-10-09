@@ -93,7 +93,7 @@ if [[ -d "/usr/local/cuda-13.3/" ]]; then
     export PATH="/usr/local/cuda-13.3/bin:$PATH"
 fi
 
-## Set up Homebrew
+## Set up Homebrew (Only really needed on WSL2 Ubuntu)
 if [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
@@ -141,4 +141,3 @@ unset __DOTNET_DIR
 # NOTE: THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
