@@ -56,7 +56,7 @@
     "clock": {
         "tooltip": false,
         "format": "{:%H:%M  -  %m/%d/%Y}",
-        "interval": 60
+        "interval": 10
     },
     "network": {
         "format-wifi": "󰤢",
