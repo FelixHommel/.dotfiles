@@ -71,10 +71,10 @@ fi
 
 ## Easy Bat Support (just like https://github.com/fdellwing/zsh-bat)
 if command -v batcat >/dev/null 2>&1; then
-    alias rcat="$(which cat)"
+    alias ocat="$(which cat)"
     alias cat="$(which batcat)"
 elif command -v bat >/dev/null 2>&1; then
-    alias rcat="$(which cat)"
+    alias ocat="$(which cat)"
     alias cat="$(which bat)"
 fi
 
