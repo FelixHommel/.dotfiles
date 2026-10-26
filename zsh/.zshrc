@@ -112,7 +112,7 @@ if [[ -x "$HOME/.local/bin/env" ]]; then
 fi
 
 ## Set up NodeJS Version Manager
-export __NVM_DIR="$HOME/.nvm"
+__NVM_DIR="$HOME/.nvm"
 if [[ -d "$__NVM_DIR" ]]; then
     export NVM_DIR="$__NVM_DIR"
     [ -s "$__NVM_DIR/nvm.sh" ] && \. "$__NVM_DIR/nvm.sh"  # This loads nvm
