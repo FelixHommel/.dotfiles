@@ -69,7 +69,7 @@ if command -v nvim >/dev/null 2>&1; then
     export MANPAGER="nvim +Man!"
 fi
 
-## Easy Bat Support (just like https://github.com/fdellwing/zsh-bat)
+## NOTE: replace cat with bat (just like https://github.com/fdellwing/zsh-bat)
 if command -v batcat >/dev/null 2>&1; then
     alias ocat="$(which cat)"
     alias cat="$(which batcat)"
