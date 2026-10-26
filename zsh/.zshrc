@@ -32,9 +32,6 @@ alias grss="git reset --staged"
 alias gst="git status"
 alias gs="git switch"
 
-## zed
-alias zed="zeditor"
-
 # Zplug
 source $HOME/.zplug/init.zsh
 
