@@ -84,9 +84,11 @@ if [[ -d "/usr/local/cuda-13.3/" ]]; then
 fi
 
 ## Set up Homebrew (Only really needed on WSL2 Ubuntu)
-if [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+__HOMEBREW="/home/linuxbrew/.linuxbrew/bin/brew"
+if [[ -x "$__HOMEBREW" ]]; then
+    eval "$($__HOMEBREW shellenv)"
 fi
+unset __HOMEBREW
 
 ## Set up VulkanSDK
 if [[ -f "$HOME/VulkanSDK/1.4.335.0/setup-env.sh" ]]; then
