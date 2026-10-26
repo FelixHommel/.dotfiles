@@ -107,9 +107,11 @@ fi
 unset __VCPKG_ROOT
 
 ## Set up uv
-if [[ -x "$HOME/.local/bin/env" ]]; then
-    . "$HOME/.local/bin/env"
+__UV_ENV="$HOME/.local/bin/env"
+if [[ -x "$__UV_ENV" ]]; then
+    . "$__UV_ENV"
 fi
+unset __UV_ENV
 
 ## Set up NodeJS Version Manager
 __NVM_DIR="$HOME/.nvm"
