@@ -79,9 +79,11 @@ elif command -v bat >/dev/null 2>&1; then
 fi
 
 ## CUDA
-if [[ -d "/usr/local/cuda-13.3/" ]]; then
-    export PATH="/usr/local/cuda-13.3/bin:$PATH"
+__CUDA_DIR="/usr/local/cuda-13.3/"
+if [[ -d "$__CUDA_DIR" ]]; then
+    export PATH="$__CUDA_DIR/bin:$PATH"
 fi
+unset __CUDA_DIR
 
 ## Set up Homebrew (Only really needed on WSL2 Ubuntu)
 __HOMEBREW="/home/linuxbrew/.linuxbrew/bin/brew"
