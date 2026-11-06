@@ -31,6 +31,7 @@ alias grs="git restore"
 alias grss="git reset --staged"
 alias gst="git status"
 alias gs="git switch"
+alias lg="lazygit"
 
 # Zplug
 source $HOME/.zplug/init.zsh
