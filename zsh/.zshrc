@@ -136,6 +136,16 @@ if [[ -d "$__DOTNET_DIR" ]]; then
 fi
 unset __DOTNET_DIR
 
+__PNPM_HOME='/home/felix/.local/share/pnpm'
+if [[ -d "$__PNPM_HOME" ]]; then
+    export PNPM_HOME="$__PNPM_HOME"
+    case ":$PATH:" in
+      ":$PNPM_HOME/bin:"*) ;;
+      *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+    esac
+fi
+unset __PNPM_HOME
+
 ## Set up Sdkman
 # NOTE: THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
